@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<!--<script type="text/javascript" src="js/cadastrar_servico.js"></script>-->
+<title>Cadastre seu serviço</title>
+</head>
+<body>
+	
+	<form action="/permuta/cadastrar_servico.do" method="post">
+		
+		<div>
+			<label for="area">Área:</label>
+			<input type="text" name="area">
+		</div> 
+		<div id="div_habilidade" style="width: 200px ">
+			<label for="habilidade">Habilidade 1:</label>
+			<input type="text" name="habilidade1">
+		</div>
+		<div>
+			<input type="button" value="Adicionar outra habilidade" onClick="mais()">
+		</div>
+		<div class="button">
+			<button type="submit" onclick="importarValorInput()">Cadastrar</button>
+		</div>
+		
+		<input type="hidden" id="input" name="input"/>
+	</form>
+	
+</body>
+<script type="text/javascript">
+input = 1 ;
+
+function mais() { 
+	input++;
+	campo = "habilidade" + input;
+	document.getElementById("div_habilidade").innerHTML+=campo+":"+
+	" <input type='text' name='"+campo+"' value=''><br>"; 
+	document.form.campo.value=""; 
+} 
+
+function importarValorInput() { debugger;
+	document.getElementById("input").value = input;
+} 
+</script>
+</html>
